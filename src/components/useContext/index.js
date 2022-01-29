@@ -1,6 +1,6 @@
 import React, { useState, createContext } from "react";
-import Login from "./Login";
-import User from "./User";
+import Login from "./login";
+import User from "./user";
 
 export const AppContext = createContext(null);
 
