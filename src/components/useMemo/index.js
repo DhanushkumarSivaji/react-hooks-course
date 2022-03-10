@@ -31,6 +31,8 @@ export default function MemoTutorial() {
 
   const getLongestName = useMemo(() => findLongestName(data), [data]);
 
+  
+
   return (
     <div className="App">
       <div> {getLongestName} </div>
