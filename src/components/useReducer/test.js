@@ -1,23 +1,32 @@
-import React,{useReducer} from 'react'
+import React,{useReducer,useState,useMemo} from 'react';
 
 const reducer = (state,action) => {
-    switch (action.type) {
-        case 'INCREMENT':
-            return { count: state.count + 1}
-        case 'DECREMENT':
-            return { count: state.count - 1}
-        default:
-            return state
-    }
+  switch(action.type){
+    case 'INCREMENT':
+      return {...state,count: state.count + 1}
+    case 'DECREMENT':
+      return {...state,count: state.count - 1}
+    default:
+      return state
+  }
 }
 
-export default function UseReducerHook() {
-  const [state,dispatch] = useReducer(reducer,{count:0})
+const TestReducer = ( ) => {
+  const [state,dispatch] = useReducer(reducer,{count: 0})
+  const [name,setName] = useState('Dhanush')
+
+  const renderUserName = useMemo(() => {
+     return name
+  },[name])
+
   return (
     <>
-    <div>{state.count}</div>
-    <button onClick={() => dispatch({type:'INCREMENT'})}> INCREMENT </button>
-    <button onClick={() => dispatch({type:'DECREMENT'})}> DECREMENT </button>
+      {state.count}
+      {renderUserName()}
+      <button onClick={() => dispatch({type:'INCREMENT'})}>Increase Count</button>
+      <button onClick={() => dispatch({type:'DECREMENT'})}>Decrease Count</button>
     </>
   )
 }
+
+export default TestReducer;

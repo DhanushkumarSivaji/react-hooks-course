@@ -23,17 +23,43 @@ import Debounce from './components/debounce';
 import Throtlling from './components/throttling';
 import ClassComponents from './components/classComponents';
 import NestedFolder from './components/nestedFolder';
-// import Api from './components/api';
+import PreventRerender from './components/preventingRerenders';
+import Api from './components/api';
+import RenderProp from './components/renderPropPattern';
+import Example from './components/sideEffects/functionalComponents/example3';
+import PropTesting from './components/propTypes';
+import StyleTheComponents from './components/styledComponents';
+import CssModules from './components/cssmodules';
 import './App.css';
 
 
-const APICOMPONENT = lazy(() => import('./components/api'))
+// const Api = lazy(() => import('./components/api'))
+// const UseState = lazy(() => import('./components/useState'))
+// const UseReducer = lazy(() => import('./components/useReducer'))
+// const UseCallback = lazy(() => import('./components/useCallback/test'))
+// const UseContext = lazy(() => import('./components/useContext'))
+// const UseEffect = lazy(() => import('./components/useEffect'))
+// const UseLayoutEffect = lazy(() => import('./components/useLayoutEffect'))
+// const UseMemo = lazy(() => import('./components/useMemo/useMemo'))
+// const UseImperativeHandle = lazy(() => import('./components/useImperativeHandle'))
+// const ClosuresInReact = lazy(() => import('./components/closures'))
+// const Form = lazy(() => import('./components/form/form'))
+// const Portal = lazy(() => import('./components/portal'))
+// const HOC = lazy(() => import('./components/hoc'))
+// const UncontrolledComponents = lazy(() => import('./components/uncontrolledComponents'))
+// const PropsDrilling = lazy(() => import('./components/propsDrilling'))
+// const Debounce = lazy(() => import('./components/debounce'))
+// const Throtlling = lazy(() => import('./components/throttling'))
+// const ClassComponents = lazy(() => import('./components/classComponents'))
+// const NestedFolder = lazy(() => import('./components/nestedFolder'))
+// const PreventRerender = lazy(() => import('./components/preventingRerenders'))
+// const RenderProp = lazy(() => import('./components/renderPropPattern'))
 
 function App() {
 
   return (
     <>
-    <Portal/>
+    {/* <Portal/> */}
     <Router>
     <div>
         <nav>
@@ -92,6 +118,21 @@ function App() {
             <li>
               <Link to="/nested">NestedFolder</Link>
             </li>
+            <li>
+              <Link to="/rerender">PreventRerender</Link>
+            </li>
+            <li>
+              <Link to="/side-effects">SideEffects</Link>
+            </li>
+            <li>
+              <Link to="/prop">PropTesting</Link>
+            </li>
+            <li>
+              <Link to="/style">StyleTheComponents</Link>
+            </li>
+            <li>
+              <Link to="/css">CssModules</Link>
+            </li>
           </ul>
         </nav>
     </div>
@@ -107,7 +148,7 @@ function App() {
           <Route exact path="/useimperativehandle" element={<UseImperativeHandle/>} />
           <Route exact path="/closures" element={<ClosuresInReact/>} />
           <Route exact path="/form" element={<Form/>} />
-          <Route exact path="/api" element={<APICOMPONENT/>} />
+          <Route exact path="/api" element={<Api/>} />
           <Route exact path="/hoc" element={<HOC/>} />
           <Route exact path="/unc" element={<UncontrolledComponents/>} />
           <Route exact path="/props" element={<PropsDrilling/>} />
@@ -115,6 +156,12 @@ function App() {
           <Route exact path="/throtlling" element={<Throtlling/>} />
           <Route exact path="/class" element={<ClassComponents/>} />
           <Route exact path="/nested" element={<NestedFolder/>} />
+          <Route exact path="/rerender" element={<PreventRerender/>} />
+          <Route exact path="/render-prop" element={<RenderProp/>} />
+          <Route exact path="/side-effects" element={<Example/>} />
+          <Route exact path="/prop" element={<PropTesting/>} />
+          <Route exact path="/style" element={<StyleTheComponents/>} />
+          <Route exact path="/css" element={<CssModules/>} />
       </Routes>
       </Suspense>
     </Router>
